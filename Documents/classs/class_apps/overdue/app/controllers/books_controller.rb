@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
+  # after_create :create_history
 
   # GET /books
   # GET /books.json
@@ -15,18 +16,24 @@ class BooksController < ApplicationController
   # GET /books/new
   def new
     @book = Book.new
-    # @history = History.new
+
   end
 
   # GET /books/1/edit
   def edit
   end
 
+  # def create_history
+  #   History.create(name: name, author: author)
+  # end
+
   # POST /books
   # POST /books.json
   def create
     @book = Book.new(book_params)
-    # @history = History.new(book_params)
+    
+    #added below
+    History.create(book_params)
 
     respond_to do |format|
       if @book.save
