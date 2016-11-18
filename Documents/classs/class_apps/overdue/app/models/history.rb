@@ -1,3 +1,3 @@
-class Book < ApplicationRecord
+class History < ApplicationRecord
   belongs_to :user, dependent: :destroy
 end

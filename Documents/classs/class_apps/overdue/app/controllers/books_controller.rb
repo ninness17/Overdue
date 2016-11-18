@@ -15,6 +15,7 @@ class BooksController < ApplicationController
   # GET /books/new
   def new
     @book = Book.new
+    # @history = History.new
   end
 
   # GET /books/1/edit
@@ -25,6 +26,7 @@ class BooksController < ApplicationController
   # POST /books.json
   def create
     @book = Book.new(book_params)
+    # @history = History.new(book_params)
 
     respond_to do |format|
       if @book.save
